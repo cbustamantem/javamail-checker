@@ -10,13 +10,13 @@ public class TLSEmail  implements EmailSender{
 	public boolean sendMail(final EmailSettings settings, String subject, String body) {
 				
 		
-		System.out.println("TLSEmail Start");
+		System.out.println("TLSEmail Start - no trust");
 		Properties props = new Properties();
 		props.put("mail.smtp.host", settings.getHostName()); //SMTP Host
 		props.put("mail.smtp.port", "587"); //TLS Port
 		props.put("mail.smtp.auth", "true"); //enable authentication
 		props.put("mail.smtp.starttls.enable", "true"); //enable STARTTLS
-                props.put("mail.smtp.ssl.trust", "*");
+                //props.put("mail.smtp.ssl.trust", "*");
 		
                 //create Authenticator object to pass in Session.getInstance argument
 		Authenticator auth = new Authenticator() {
